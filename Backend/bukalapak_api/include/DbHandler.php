@@ -1064,7 +1064,33 @@ class DbHandler {
             $tmp["seller_term_condition"] = $task["seller_term_condition"];
             $tmp["top_merchant"] = $task["top_merchant"];
             $tmp["average_rate"] = $task["average_rate"];
-           
+            $tmp["features"] = array();
+            $temps = array();
+            $temps["category"]= "Baterai";
+            $temps["image_url"] = "http://apibukalapak.azurewebsites.net/image/ic_batery.png";
+            $temps["positive"] = rand(1,24)."";
+            $temps["negative"] = rand(1,6)."";
+            $temps["netral"] = rand(3,17)."";
+            array_push($tmp["features"], $temps);
+            $temps["category"]= "Lensa";
+            $temps["image_url"] = "http://apibukalapak.azurewebsites.net/image/ic_lensa.png";
+            $temps["positive"] = rand(1,24)."";
+            $temps["negative"] = rand(1,6)."";
+            $temps["netral"] = rand(3,17)."";
+            array_push($tmp["features"], $temps);
+            $temps["category"]= "Package";
+            $temps["image_url"] = "http://apibukalapak.azurewebsites.net/image/ic_package.png";
+            $temps["positive"] = rand(1,24)."";
+            $temps["negative"] = rand(1,6)."";
+            $temps["netral"] = rand(3,17)."";
+            array_push($tmp["features"], $temps);
+            $temps["category"]= "Go Pro";
+            $temps["image_url"] = "http://apibukalapak.azurewebsites.net/image/ic_gopro.png";
+            $temps["positive"] = rand(1,24)."";
+            $temps["negative"] = rand(1,6)."";
+            $temps["netral"] = rand(3,17)."";
+            array_push($tmp["features"], $temps);
+            
             array_push($ret, $tmp);
         }
         return $ret;
@@ -1101,6 +1127,33 @@ class DbHandler {
             $tmp["seller_term_condition"] = $task["seller_term_condition"];
             $tmp["top_merchant"] = $task["top_merchant"];
             $tmp["average_rate"] = $task["average_rate"];
+            $tmp["features"] = array();
+            $temps = array();
+            $temps["category"]= "Baterai";
+            $temps["image_url"] = "http://apibukalapak.azurewebsites.net/image/ic_batery.png";
+            $temps["positive"] = rand(1,24)."";
+            $temps["negative"] = rand(1,6)."";
+            $temps["netral"] = rand(3,17)."";
+            array_push($tmp["features"], $temps);
+            $temps["category"]= "Lensa";
+            $temps["image_url"] = "http://apibukalapak.azurewebsites.net/image/ic_lensa.png";
+            $temps["positive"] = rand(1,24)."";
+            $temps["negative"] = rand(1,6)."";
+            $temps["netral"] = rand(3,17)."";
+            array_push($tmp["features"], $temps);
+            $temps["category"]= "Package";
+            $temps["image_url"] = "http://apibukalapak.azurewebsites.net/image/ic_package.png";
+            $temps["positive"] = rand(1,24)."";
+            $temps["negative"] = rand(1,6)."";
+            $temps["netral"] = rand(3,17)."";
+            array_push($tmp["features"], $temps);
+            $temps["category"]= "Go Pro";
+            $temps["image_url"] = "http://apibukalapak.azurewebsites.net/image/ic_gopro.png";
+            $temps["positive"] = rand(1,24)."";
+            $temps["negative"] = rand(1,6)."";
+            $temps["netral"] = rand(3,17)."";
+            array_push($tmp["features"], $temps);
+
             array_push($ret, $tmp);
         }
         return $ret;
@@ -1124,6 +1177,22 @@ class DbHandler {
             $tmp["product_id"] = $task["product_id"];
             $tmp["positive_votes"] = $task["positive_votes"];
             $tmp["negative_votes"] = $task["negative_votes"];
+            $tmp["sentimen"] = $task["sentimen"];
+            $tmp["features"] = array();
+            $temps = array();
+            $fitur = array("Lensa", "Baterai", "Package", "Go Pro");
+            $url = array("http://apibukalapak.azurewebsites.net/image/ic_lensa.png","http://apibukalapak.azurewebsites.net/image/ic_batery.png","http://apibukalapak.azurewebsites.net/image/ic_package.png","http://apibukalapak.azurewebsites.net/image/ic_gopro.png");
+            $n = rand(0,1);
+            $rand1 = 100;
+            for($i=0;$i<=$n;$i++){
+                $r1 = rand(0,3);
+                while($r1!=$rand1){
+                    $temps["category"] = $fitur[$r1];
+                    $temps["image_url"] = $url[$r1];
+                    $rand1 = $r1;
+                    array_push($tmp["features"], $temps);
+                }
+            }
             array_push($ret, $tmp);
         }
         return $ret;
